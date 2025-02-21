@@ -1,0 +1,81 @@
+.test-sistemleri-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  min-height: calc(100vh - 80px);
+}
+
+.test-sistemleri-container h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.sistemler-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.sistem-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.sistem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sistem-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.sistem-card h2 {
+  padding: 1rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.sistem-aciklama {
+  padding: 0 1rem;
+  color: #666;
+  flex-grow: 1;
+}
+
+.sistem-ozellikler {
+  padding: 1rem;
+  margin: 0;
+  list-style-type: none;
+  background: #f8f8f8;
+}
+
+.sistem-ozellikler li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.sistem-ozellikler li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .test-sistemleri-container {
+    padding: 0 1rem;
+  }
+  
+  .sistemler-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+} 

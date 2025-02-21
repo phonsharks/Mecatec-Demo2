@@ -1,0 +1,128 @@
+.iletisim-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  min-height: calc(100vh - 80px);
+}
+
+.iletisim-container h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.iletisim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.iletisim-card, .iletisim-form-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.iletisim-card h2, .iletisim-form-card h2 {
+  margin: 0 0 1.5rem;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.iletisim-bilgileri {
+  margin-bottom: 2rem;
+}
+
+.bilgi-grup {
+  margin-bottom: 1.5rem;
+}
+
+.bilgi-grup h3 {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.bilgi-grup p {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.bilgi-grup a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bilgi-grup a:hover {
+  color: #0056b3;
+}
+
+.harita {
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+/* Form Stilleri */
+.iletisim-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-grup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-grup label {
+  color: #555;
+  font-size: 1rem;
+}
+
+.form-grup input,
+.form-grup textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-grup textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.gonder-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.gonder-button:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .iletisim-container {
+    padding: 0 1rem;
+  }
+  
+  .iletisim-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .iletisim-card, .iletisim-form-card {
+    padding: 1.5rem;
+  }
+} 
