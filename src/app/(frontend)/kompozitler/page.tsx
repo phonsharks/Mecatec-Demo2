@@ -1,49 +1,82 @@
-import { getPayload } from 'payload'
-import React from 'react'
-import config from '@/payload.config'
+'use client'
+
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
-import '../styles.css'
-import './kompozitler.css'
-import { Kompozit } from '@/payload-types'
+import './kompozit.css'
 
-export default async function KompozitlerPage() {
-  const payload = await getPayload({ config })
-  const { docs: kompozitler } = (await payload.find({
-    collection: 'kompozitler',
-    sort: 'siraNo',
-  })) as { docs: Kompozit[] }
+interface DropdownCardProps {
+  title: string
+  content: string
+  isOpen: boolean
+  onToggle: () => void
+}
 
-  const serializeRichText = (content: any) => {
-    if (!content?.root?.children) return ''
-    return content.root.children.map((node: any) => node.children?.[0]?.text || '').join('')
+const DropdownCard: React.FC<DropdownCardProps> = ({ title, content, isOpen, onToggle }) => {
+  return (
+    <div className={`dropdown-card ${isOpen ? 'open' : ''}`}>
+      <div className="dropdown-header" onClick={onToggle}>
+        <h2>{title}</h2>
+        <span className="dropdown-icon">{isOpen ? '−' : '+'}</span>
+      </div>
+      <div className="dropdown-content">
+        <p>{content}</p>
+      </div>
+    </div>
+  )
+}
+
+export default function KompozitPage() {
+  const [openCards, setOpenCards] = useState<number[]>([])
+
+  const toggleCard = (index: number) => {
+    setOpenCards((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
+    )
   }
+
+  const cardData = [
+    {
+      title: 'İleri Teknoloji Kompozit Malzemeler',
+      content:
+        'Yüksek performanslı karbon fiber, cam fiber ve hibrit kompozit malzemeler üretiyoruz. Hafiflik, dayanıklılık ve uzun ömür gerektiren uygulamalar için özel olarak tasarlanmış çözümler sunuyoruz.',
+    },
+    {
+      title: 'Özel Tasarım Kompozit Yapılar',
+      content:
+        'Endüstriyel uygulamalar için özel tasarlanmış kompozit yapılar geliştiriyoruz. Termal yönetim, titreşim sönümleme ve yapısal dayanım gibi spesifik gereksinimlere uygun çözümler üretiyoruz.',
+    },
+    {
+      title: 'Kompozit Malzeme Analiz ve Test',
+      content:
+        'Kompozit malzemelerin mekanik, termal ve yapısal özelliklerini analiz ediyor, detaylı test ve karakterizasyon hizmetleri sunuyoruz. İleri analiz yöntemleri ile malzeme performansını optimize ediyoruz.',
+    },
+  ]
 
   return (
     <>
       <Navbar />
-      <div className="kompozitler-container">
-        <h1>Kompozit Ürünlerimiz</h1>
-        <div className="kompozitler-grid">
-          {kompozitler.map((kompozit) => (
-            <div key={kompozit.id} className="kompozit-card">
-              {kompozit.resim && (
-                <img
-                  src={kompozit.resim.url}
-                  alt={kompozit.resim.alt || kompozit.baslik}
-                  className="kompozit-image"
-                />
-              )}
-              <h2>{kompozit.baslik}</h2>
-              <div className="kompozit-aciklama">{serializeRichText(kompozit.aciklama)}</div>
-              {kompozit.ozellikler && kompozit.ozellikler.length > 0 && (
-                <ul className="kompozit-ozellikler">
-                  {kompozit.ozellikler.map((ozellik) => (
-                    <li key={ozellik.id}>{ozellik.ozellik}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
+      <div className="kompozit-page">
+        <div className="banner-section">
+          <div className="banner-overlay">
+            <h1>Kompozit Teknolojileri</h1>
+            <p>
+              Yenilikçi kompozit malzeme çözümleri ile geleceğin teknolojilerini şekillendiriyoruz
+            </p>
+          </div>
+        </div>
+
+        <div className="content-section">
+          <div className="cards-container">
+            {cardData.map((card, index) => (
+              <DropdownCard
+                key={index}
+                title={card.title}
+                content={card.content}
+                isOpen={openCards.includes(index)}
+                onToggle={() => toggleCard(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

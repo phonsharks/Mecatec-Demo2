@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types'
 
 export const Kompozitler: CollectionConfig = {
-  slug: 'kompozitler',
+  slug: 'kompozit',
   admin: {
     useAsTitle: 'baslik',
     defaultColumns: ['baslik', 'createdAt'],

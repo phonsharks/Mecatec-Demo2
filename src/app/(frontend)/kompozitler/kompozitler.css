@@ -1,17 +1,17 @@
-.kompozitler-container {
+.kompozit-container {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
   min-height: calc(100vh - 80px); /* Navbar yüksekliğini çıkarıyoruz */
 }
 
-.kompozitler-container h1 {
+.kompozit-container h1 {
   text-align: center;
   margin-bottom: 3rem;
   color: #333;
 }
 
-.kompozitler-grid {
+.kompozit-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
@@ -69,12 +69,139 @@
 }
 
 @media (max-width: 768px) {
-  .kompozitler-container {
+  .kompozit-container {
     padding: 0 1rem;
   }
   
-  .kompozitler-grid {
+  .kompozit-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
+  }
+}
+
+.kompozit-page {
+  min-height: 100vh;
+}
+
+.banner-section {
+  height: 400px;
+  background-image: url('/images/composites-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.banner-overlay h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.banner-overlay p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  max-width: 800px;
+}
+
+.content-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dropdown-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.dropdown-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+  color: white;
+}
+
+.dropdown-header h2 {
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+}
+
+.dropdown-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-card.open .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.dropdown-card.open .dropdown-content {
+  max-height: 500px;
+}
+
+.dropdown-content p {
+  padding: 1.5rem;
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .banner-section {
+    height: 300px;
+  }
+
+  .content-section {
+    padding: 0 1rem 2rem;
+  }
+
+  .dropdown-header {
+    padding: 1.2rem;
+  }
+
+  .dropdown-content p {
+    padding: 1.2rem;
   }
 } 

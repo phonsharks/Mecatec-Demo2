@@ -1,49 +1,80 @@
-import { getPayload } from 'payload'
-import React from 'react'
-import config from '@/payload.config'
+'use client'
+
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
-import '../styles.css'
-import './optikler.css'
-import { Optik } from '@/payload-types'
+import './optik.css'
 
-export default async function OptiklerPage() {
-  const payload = await getPayload({ config })
-  const { docs: optikler } = (await payload.find({
-    collection: 'optikler',
-    sort: 'siraNo',
-  })) as { docs: Optik[] }
+interface DropdownCardProps {
+  title: string
+  content: string
+  isOpen: boolean
+  onToggle: () => void
+}
 
-  const serializeRichText = (content: any) => {
-    if (!content?.root?.children) return ''
-    return content.root.children.map((node: any) => node.children?.[0]?.text || '').join('')
+const DropdownCard: React.FC<DropdownCardProps> = ({ title, content, isOpen, onToggle }) => {
+  return (
+    <div className={`dropdown-card ${isOpen ? 'open' : ''}`}>
+      <div className="dropdown-header" onClick={onToggle}>
+        <h2>{title}</h2>
+        <span className="dropdown-icon">{isOpen ? '−' : '+'}</span>
+      </div>
+      <div className="dropdown-content">
+        <p>{content}</p>
+      </div>
+    </div>
+  )
+}
+
+export default function OptikPage() {
+  const [openCards, setOpenCards] = useState<number[]>([])
+
+  const toggleCard = (index: number) => {
+    setOpenCards((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
+    )
   }
+
+  const cardData = [
+    {
+      title: 'Özel Optik Bileşenler',
+      content:
+        'Müşterilerimizin ihtiyaçlarına özel olarak tasarlanan ve üretilen optik bileşenler sunuyoruz. Her türlü özel gereksinim için yüksek kaliteli çözümler üretiyoruz.',
+    },
+    {
+      title: 'Dizayn Özel Tasarım ve Üretim',
+      content:
+        'Modern tasarım araçları ve ileri üretim teknolojileri ile müşterilerimizin özel projelerine uygun optik sistemler geliştiriyoruz.',
+    },
+    {
+      title: 'Yüksek hassasiyetli Optikler ve Özel Kaplamalar',
+      content:
+        'Nanometre seviyesinde hassasiyetle üretilen optik bileşenler ve özel kaplama çözümleri sunuyoruz. En zorlu uygulamalar için bile maksimum performans sağlıyoruz.',
+    },
+  ]
 
   return (
     <>
       <Navbar />
-      <div className="optikler-container">
-        <h1>Optik Ürünlerimiz</h1>
-        <div className="optikler-grid">
-          {optikler.map((optik) => (
-            <div key={optik.id} className="optik-card">
-              {optik.resim && (
-                <img
-                  src={optik.resim.url}
-                  alt={optik.resim.alt || optik.baslik}
-                  className="optik-image"
-                />
-              )}
-              <h2>{optik.baslik}</h2>
-              <div className="optik-aciklama">{serializeRichText(optik.aciklama)}</div>
-              {optik.teknikOzellikler && optik.teknikOzellikler.length > 0 && (
-                <ul className="optik-ozellikler">
-                  {optik.teknikOzellikler.map((ozellik) => (
-                    <li key={ozellik.id}>{ozellik.ozellik}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
+      <div className="optik-page">
+        <div className="banner-section">
+          <div className="banner-overlay">
+            <h1>Optik Çözümler</h1>
+            <p>Yüksek hassasiyetli optik bileşenler ve özel tasarım çözümler</p>
+          </div>
+        </div>
+
+        <div className="content-section">
+          <div className="cards-container">
+            {cardData.map((card, index) => (
+              <DropdownCard
+                key={index}
+                title={card.title}
+                content={card.content}
+                isOpen={openCards.includes(index)}
+                onToggle={() => toggleCard(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

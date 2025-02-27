@@ -1,61 +1,81 @@
-import { getPayload } from 'payload'
+'use client'
+
 import React from 'react'
-import config from '@/payload.config'
-import Navbar from '../components/Navbar'
-import '../styles.css'
-import './temsilcilikler.css'
-import { Temsilcilik } from '@/payload-types'
+import Navbar from '@/app/(frontend)/components/Navbar'
+import './temsilcilik.css'
 
-export default async function TemsilciliklerPage() {
-  const payload = await getPayload({ config })
-  const { docs: temsilcilikler } = (await payload.find({
-    collection: 'temsilcilikler',
-    sort: 'siraNo',
-  })) as { docs: Temsilcilik[] }
+interface PartnerCard {
+  name: string
+  logo: string
+  description: string
+  website: string
+  location: string
+}
 
-  const serializeRichText = (content: any) => {
-    if (!content?.root?.children) return ''
-    return content.root.children.map((node: any) => node.children?.[0]?.text || '').join('')
-  }
+const partnerData: PartnerCard[] = [
+  {
+    name: 'Edmund Optics',
+    logo: '/images/partners/edmund-optics.png',
+    description: 'Optik bileşenler ve görüntüleme sistemleri konusunda dünya lideri.',
+    website: 'https://www.edmundoptics.com',
+    location: 'Amerika Birleşik Devletleri',
+  },
+  {
+    name: 'Thorlabs',
+    logo: '/images/partners/thorlabs.png',
+    description: 'Fotonik ürünler ve optik ekipman üretiminde öncü firma.',
+    website: 'https://www.thorlabs.com',
+    location: 'Amerika Birleşik Devletleri',
+  },
+  {
+    name: 'Newport Corporation',
+    logo: '/images/partners/newport.png',
+    description: 'Hassas optik çözümler ve lazer sistemleri konusunda uzman.',
+    website: 'https://www.newport.com',
+    location: 'Amerika Birleşik Devletleri',
+  },
+]
 
+const TemsilcilikPage = () => {
   return (
-    <>
+    <div className="temsilcilik-page">
       <Navbar />
-      <div className="temsilcilikler-container">
-        <h1>Temsilciliklerimiz</h1>
-        <div className="temsilcilikler-grid">
-          {temsilcilikler.map((temsilcilik) => (
-            <div key={temsilcilik.id} className="temsilcilik-card">
-              {temsilcilik.logo && (
-                <img
-                  src={temsilcilik.logo.url}
-                  alt={temsilcilik.firmaAdi}
-                  className="temsilcilik-logo"
-                />
-              )}
-              <div className="temsilcilik-content">
-                <h2>{temsilcilik.firmaAdi}</h2>
-                <p className="ulke">{temsilcilik.ulke}</p>
-                {temsilcilik.aciklama && (
-                  <div className="temsilcilik-aciklama">
-                    {serializeRichText(temsilcilik.aciklama)}
-                  </div>
-                )}
-                {temsilcilik.websitesi && (
-                  <a
-                    href={temsilcilik.websitesi}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="website-link"
-                  >
-                    Web Sitesini Ziyaret Et
-                  </a>
-                )}
+
+      <section className="banner-section">
+        <div className="banner-overlay">
+          <h1>Temsilciliklerimiz</h1>
+          <p>Dünya çapında lider firmalarla güçlü iş birliklerimiz</p>
+        </div>
+      </section>
+
+      <section className="content-section">
+        <div className="partners-container">
+          {partnerData.map((partner, index) => (
+            <div key={index} className="partner-card">
+              <div className="partner-logo">
+                <img src={partner.logo} alt={`${partner.name} logo`} />
+              </div>
+              <div className="partner-info">
+                <h3>{partner.name}</h3>
+                <p className="partner-description">{partner.description}</p>
+                <p className="partner-location">
+                  <i className="fas fa-map-marker-alt"></i> {partner.location}
+                </p>
+                <a
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="partner-website"
+                >
+                  Web Sitesini Ziyaret Et
+                </a>
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </>
+      </section>
+    </div>
   )
 }
+
+export default TemsilcilikPage

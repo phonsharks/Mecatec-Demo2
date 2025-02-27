@@ -14,18 +14,24 @@ import { Optikler } from './collections/Optikler'
 import { TestSistemleri } from './collections/TestSistemleri'
 import { Temsilcilikler } from './collections/Temsilcilikler'
 import { Kariyer } from './collections/Kariyer'
+import { Solutions } from './collections/Solutions'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
   admin: {
-    user: Users.slug,
+    user: 'users',
+    meta: {
+      titleSuffix: '- Mecatec Admin',
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
   },
   collections: [
+    Solutions,
     Users,
     Media,
     Kompozitler,
@@ -33,12 +39,14 @@ export default buildConfig({
     TestSistemleri,
     Temsilcilikler,
     Kariyer,
-    
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
+  },
+  graphQL: {
+    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',

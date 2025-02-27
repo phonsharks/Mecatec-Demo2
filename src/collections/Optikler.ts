@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types'
 
 export const Optikler: CollectionConfig = {
-  slug: 'optikler',
+  slug: 'optik',
   admin: {
     useAsTitle: 'baslik',
     defaultColumns: ['baslik', 'createdAt'],

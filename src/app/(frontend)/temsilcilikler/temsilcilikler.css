@@ -1,17 +1,17 @@
-.temsilcilikler-container {
+.temsilcilik-container {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
   min-height: calc(100vh - 80px);
 }
 
-.temsilcilikler-container h1 {
+.temsilcilik-container h1 {
   text-align: center;
   margin-bottom: 3rem;
   color: #333;
 }
 
-.temsilcilikler-grid {
+.temsilcilik-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
@@ -74,11 +74,152 @@
 }
 
 @media (max-width: 768px) {
-  .temsilcilikler-container {
+  .temsilcilik-container {
     padding: 0 1rem;
   }
   
-  .temsilcilikler-grid {
+  .temsilcilik-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+.temsilcilik-page {
+  min-height: 100vh;
+}
+
+.banner-section {
+  height: 400px;
+  background-image: url('/images/partners-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+}
+
+.banner-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.banner-overlay p {
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+.content-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.partners-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.partner-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+}
+
+.partner-logo {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #f8f9fa;
+}
+
+.partner-logo img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.partner-info {
+  padding: 1.5rem;
+}
+
+.partner-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.partner-description {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.partner-location {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.partner-website {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.partner-website:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .banner-section {
+    height: 300px;
+  }
+
+  .banner-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .banner-overlay p {
+    font-size: 1rem;
+  }
+
+  .content-section {
+    padding: 2rem 1rem;
+  }
+
+  .partner-card {
+    margin-bottom: 1.5rem;
   }
 } 

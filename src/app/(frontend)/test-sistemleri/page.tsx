@@ -1,55 +1,85 @@
-import { getPayload } from 'payload'
-import React from 'react'
-import config from '@/payload.config'
+'use client'
+
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
-import '../styles.css'
 import './test-sistemleri.css'
-import { TestSistemi } from '@/payload-types'
 
-export default async function TestSistemleriPage() {
-  const payload = await getPayload({ config })
-  const { docs: sistemler } = await payload.find({
-    collection: 'test-sistemleri',
-    sort: 'siraNo',
-  }) as { docs: TestSistemi[] }
+interface DropdownCardProps {
+  title: string
+  content: string
+  isOpen: boolean
+  onToggle: () => void
+}
 
-  const serializeRichText = (content: any) => {
-    if (!content?.root?.children) return ''
-    return content.root.children
-      .map((node: any) => node.children?.[0]?.text || '')
-      .join('')
+const DropdownCard: React.FC<DropdownCardProps> = ({ title, content, isOpen, onToggle }) => {
+  return (
+    <div className={`dropdown-card ${isOpen ? 'open' : ''}`}>
+      <div className="dropdown-header" onClick={onToggle}>
+        <h2>{title}</h2>
+        <span className="dropdown-icon">{isOpen ? '−' : '+'}</span>
+      </div>
+      <div className="dropdown-content">
+        <p>{content}</p>
+      </div>
+    </div>
+  )
+}
+
+export default function TestSistemleriPage() {
+  const [openCards, setOpenCards] = useState<number[]>([])
+
+  const toggleCard = (index: number) => {
+    setOpenCards((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
+    )
   }
+
+  const cardData = [
+    {
+      title: 'Mekanik Test Sistemleri',
+      content:
+        'Malzeme dayanımı, yorulma testleri, çekme-basma testleri ve daha fazlası için yüksek hassasiyetli mekanik test sistemleri sunuyoruz. Modern sensör teknolojileri ve gelişmiş veri analizi özellikleri ile donatılmış sistemlerimiz, en zorlu test gereksinimlerini karşılar.',
+    },
+    {
+      title: 'Optik Ölçüm Sistemleri',
+      content:
+        'Yüksek çözünürlüklü görüntüleme sistemleri, interferometreler ve spektrometreler ile optik komponentlerin hassas ölçümlerini gerçekleştiriyoruz. Özel tasarım ölçüm çözümlerimiz, nanometre seviyesinde hassasiyet sağlar.',
+    },
+    {
+      title: 'Kalibrasyon ve Doğrulama Sistemleri',
+      content:
+        'Endüstriyel ölçüm cihazları için kalibrasyon ve doğrulama sistemleri geliştiriyoruz. ISO standartlarına uygun kalibrasyon prosedürleri ve sertifikasyon hizmetleri sunuyoruz.',
+    },
+  ]
 
   return (
     <>
       <Navbar />
-      <div className="test-sistemleri-container">
-        <h1>Test Sistemlerimiz</h1>
-        <div className="sistemler-grid">
-          {sistemler.map((sistem) => (
-            <div key={sistem.id} className="sistem-card">
-              {sistem.resim && (
-                <img
-                  src={sistem.resim.url}
-                  alt={sistem.resim.alt || sistem.baslik}
-                  className="sistem-image"
-                />
-              )}
-              <h2>{sistem.baslik}</h2>
-              <div className="sistem-aciklama">
-                {serializeRichText(sistem.aciklama)}
-              </div>
-              {sistem.ozellikler && sistem.ozellikler.length > 0 && (
-                <ul className="sistem-ozellikler">
-                  {sistem.ozellikler.map((ozellik) => (
-                    <li key={ozellik.id}>{ozellik.ozellik}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
+      <div className="test-sistemleri-page">
+        <div className="banner-section">
+          <div className="banner-overlay">
+            <h1>Test ve Ölçüm Sistemleri</h1>
+            <p>
+              Yüksek hassasiyetli test ve ölçüm çözümleri ile endüstriyel ihtiyaçlarınıza cevap
+              veriyoruz
+            </p>
+          </div>
+        </div>
+
+        <div className="content-section">
+          <div className="cards-container">
+            {cardData.map((card, index) => (
+              <DropdownCard
+                key={index}
+                title={card.title}
+                content={card.content}
+                isOpen={openCards.includes(index)}
+                onToggle={() => toggleCard(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>
   )
-} 
+}

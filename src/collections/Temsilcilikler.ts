@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types'
 
 export const Temsilcilikler: CollectionConfig = {
-  slug: 'temsilcilikler',
+  slug: 'temsilcilik',
   admin: {
     useAsTitle: 'firmaAdi',
     defaultColumns: ['firmaAdi', 'ulke', 'createdAt'],
