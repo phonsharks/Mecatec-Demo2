@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Cards</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #111;
+            display: flex;
+            gap: 20px;
+        }
+        .card {
+            width: 300px;
+            height: 190px;
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .black-card {
+            background: #000;
+            border: 1px solid #333;
+        }
+        .green-card {
+            background: linear-gradient(135deg, #00ff47 0%, #005219 100%);
+        }
+        .chip {
+            width: 50px;
+            height: 40px;
+            background: #c4a022;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .number {
+            font-family: monospace;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 4px;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card black-card">
+        <div class="logo">BANK</div>
+        <div class="chip"></div>
+        <div class="number">**** **** **** 1234</div>
+    </div>
+    <div class="card green-card">
+        <div class="logo">BANK</div>
+        <div class="chip"></div>
+        <div class="number">**** **** **** 5678</div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "optics": "Optikler",
+    "testSystems": "Test Sistemleri",
+    "composites": "Kompozitler",
+    "representatives": "Temsilcilikler",
+    "career": "Kariyer",
+    "contact": "İletişim",
+    "menu": "Menü"
+  },
+  "banner": {
+    "title": "Yenilikçi Teknoloji Çözümleri",
+    "subtitle": "Savunma Sanayii ve Endüstriyel Uygulamalar",
+    "description": "Optik sistemler, test sistemleri ve kompozit teknolojileri alanında uzman çözümler",
+    "button": "Detaylı Bilgi",
+    "stats": {
+      "experience": "20+ Yıl Deneyim",
+      "projects": "100+ Tamamlanan Proje",
+      "clients": "50+ Mutlu Müşteri",
+      "patents": "10+ Patent"
+    }
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "optical": {
+      "title": "Optik Sistemler",
+      "description": "İleri teknoloji optik sistemler ve çözümler"
+    },
+    "composite": {
+      "title": "Kompozit Teknolojileri",
+      "description": "Yüksek performanslı kompozit malzeme çözümleri"
+    },
+    "testing": {
+      "title": "Test Sistemleri",
+      "description": "Kapsamlı test ve ölçüm sistemleri"
+    },
+    "defense": {
+      "title": "Savunma Sanayii",
+      "description": "Savunma sanayii için özel çözümler"
+    },
+    "engineering": {
+      "title": "Mühendislik Hizmetleri",
+      "description": "Profesyonel mühendislik ve danışmanlık"
+    },
+    "rd": {
+      "title": "Ar-Ge Projeleri",
+      "description": "Yenilikçi Ar-Ge çözümleri"
+    }
+  },
+  "common": {
+    "pagination": {
+      "previous": "Önceki",
+      "next": "Sonraki",
+      "page": "Sayfa",
+      "of": "/"
+    }
+  },
+  "footer": {
+    "slogan": "Savunma sanayii ve endüstriyel uygulamalar için yenilikçi teknoloji çözümleri",
+    "services": "Hizmetlerimiz",
+    "composite": "Kompozit Teknolojileri",
+    "optical": "Optik Sistemler",
+    "testSystems": "Test Sistemleri",
+    "corporate": "Kurumsal",
+    "about": "Hakkımızda",
+    "career": "Kariyer",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "email": "info@mecatec.com",
+    "phone": "+90 312 XXX XX XX",
+    "rights": "Tüm hakları saklıdır.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "company": {
+      "title": "Şirketimiz",
+      "about": "Hakkımızda",
+      "career": "Kariyer",
+      "contact": "İletişim"
+    },
+    "solutions": {
+      "title": "Çözümlerimiz",
+      "optics": "Optik Sistemler",
+      "testing": "Test Sistemleri",
+      "composites": "Kompozit Teknolojileri"
+    },
+    "contactDetails": {
+      "title": "İletişim",
+      "address": "Ankara Teknoloji Geliştirme Bölgesi",
+      "phone": "+90 312 XXX XX XX",
+      "email": "info@mecatec.com"
+    },
+    "social": {
+      "title": "Sosyal Medya",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter"
+    },
+    "copyright": "© 2024 Mecatec. Tüm hakları saklıdır."
+  },
+  "optics": {
+    "hero": {
+      "title": "İleri Teknoloji Optik Sistemler",
+      "description": "Savunma sanayii ve endüstriyel uygulamalar için yenilikçi optik çözümler",
+      "button": "Detaylı Bilgi"
+    },
+    "features": {
+      "title": "Özelliklerimiz",
+      "precision": {
+        "title": "Yüksek Hassasiyet",
+        "description": "En son teknoloji ile üretilen hassas optik sistemler"
+      },
+      "quality": {
+        "title": "Kalite",
+        "description": "Uluslararası standartlarda kalite kontrol"
+      },
+      "innovation": {
+        "title": "Yenilikçilik",
+        "description": "Sürekli gelişen ve yenilenen teknolojiler"
+      },
+      "technology": {
+        "title": "Teknoloji",
+        "description": "En son optik teknolojileri ve çözümler"
+      }
+    },
+    "products": {
+      "title": "Ürünlerimiz",
+      "thermal": {
+        "title": "Termal Görüntüleme Sistemleri",
+        "description": "Gelişmiş termal görüntüleme teknolojileri"
+      },
+      "laser": {
+        "title": "Lazer Sistemleri",
+        "description": "Yüksek performanslı lazer çözümleri"
+      },
+      "imaging": {
+        "title": "Görüntüleme Sistemleri",
+        "description": "Profesyonel görüntüleme ve analiz sistemleri"
+      }
+    },
+    "technology": {
+      "title": "Teknolojik Altyapımız",
+      "description": "En son teknoloji ile donatılmış üretim ve test tesislerimiz",
+      "points": [
+        "İleri teknoloji üretim tesisleri",
+        "Kapsamlı test ve kalite kontrol sistemleri",
+        "Ar-Ge laboratuvarları",
+        "Uzman mühendislik ekibi"
+      ]
+    },
+    "contact": {
+      "title": "Bizimle İletişime Geçin",
+      "description": "Optik sistemler hakkında detaylı bilgi için bize ulaşın",
+      "button": "İletişime Geç"
+    }
+  }
+}

@@ -15,6 +15,7 @@ import { TestSistemleri } from './collections/TestSistemleri'
 import { Temsilcilikler } from './collections/Temsilcilikler'
 import { Kariyer } from './collections/Kariyer'
 import { Solutions } from './collections/Solutions'
+import { About } from './collections/About'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,6 +30,9 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    bundler: {
+      configPath: path.resolve(__dirname, '../webpack.config.js'),
+    },
   },
   collections: [
     Solutions,
@@ -39,6 +43,7 @@ export default buildConfig({
     TestSistemleri,
     Temsilcilikler,
     Kariyer,
+    About,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
@@ -56,4 +61,8 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+  localization: {
+    locales: ['tr', 'en'],
+    defaultLocale: 'tr',
+  },
 })

@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "optics": "Optics",
+    "testSystems": "Test Systems",
+    "composites": "Composites",
+    "representatives": "Representatives",
+    "career": "Career",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "banner": {
+    "title": "Innovative Technology Solutions",
+    "subtitle": "Defense Industry and Industrial Applications",
+    "description": "Expert solutions in optical systems, test systems, and composite technologies",
+    "button": "Learn More",
+    "stats": {
+      "experience": "20+ Years Experience",
+      "projects": "100+ Completed Projects",
+      "clients": "50+ Happy Clients",
+      "patents": "10+ Patents"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "optical": {
+      "title": "Optical Systems",
+      "description": "Advanced optical systems and solutions"
+    },
+    "composite": {
+      "title": "Composite Technologies",
+      "description": "High-performance composite material solutions"
+    },
+    "testing": {
+      "title": "Test Systems",
+      "description": "Comprehensive test and measurement systems"
+    },
+    "defense": {
+      "title": "Defense Industry",
+      "description": "Specialized solutions for defense industry"
+    },
+    "engineering": {
+      "title": "Engineering Services",
+      "description": "Professional engineering and consulting"
+    },
+    "rd": {
+      "title": "R&D Projects",
+      "description": "Innovative R&D solutions"
+    }
+  },
+  "common": {
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "of": "/"
+    }
+  },
+  "footer": {
+    "slogan": "Innovative technology solutions for defense industry and industrial applications",
+    "services": "Our Services",
+    "composite": "Composite Technologies",
+    "optical": "Optical Systems",
+    "testSystems": "Test Systems",
+    "corporate": "Corporate",
+    "about": "About Us",
+    "career": "Career",
+    "blog": "Blog",
+    "contact": "Contact",
+    "email": "info@mecatec.com",
+    "phone": "+90 312 XXX XX XX",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "company": {
+      "title": "Our Company",
+      "about": "About Us",
+      "career": "Career",
+      "contact": "Contact"
+    },
+    "solutions": {
+      "title": "Our Solutions",
+      "optics": "Optical Systems",
+      "testing": "Test Systems",
+      "composites": "Composite Technologies"
+    },
+    "contactDetails": {
+      "title": "Contact",
+      "address": "Ankara Technology Development Zone",
+      "phone": "+90 312 XXX XX XX",
+      "email": "info@mecatec.com"
+    },
+    "social": {
+      "title": "Social Media",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter"
+    },
+    "copyright": "© 2024 Mecatec. All rights reserved."
+  },
+  "optics": {
+    "hero": {
+      "title": "Advanced Optical Systems",
+      "description": "Innovative optical solutions for defense industry and industrial applications",
+      "button": "Learn More"
+    },
+    "features": {
+      "title": "Our Features",
+      "precision": {
+        "title": "High Precision",
+        "description": "Precise optical systems manufactured with latest technology"
+      },
+      "quality": {
+        "title": "Quality",
+        "description": "Quality control according to international standards"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Continuously evolving and renewing technologies"
+      },
+      "technology": {
+        "title": "Technology",
+        "description": "Latest optical technologies and solutions"
+      }
+    },
+    "products": {
+      "title": "Our Products",
+      "thermal": {
+        "title": "Thermal Imaging Systems",
+        "description": "Advanced thermal imaging technologies"
+      },
+      "laser": {
+        "title": "Laser Systems",
+        "description": "High-performance laser solutions"
+      },
+      "imaging": {
+        "title": "Imaging Systems",
+        "description": "Professional imaging and analysis systems"
+      }
+    },
+    "technology": {
+      "title": "Our Technological Infrastructure",
+      "description": "Our production and test facilities equipped with latest technology",
+      "points": [
+        "Advanced production facilities",
+        "Comprehensive test and quality control systems",
+        "R&D laboratories",
+        "Expert engineering team"
+      ]
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Contact us for detailed information about optical systems",
+      "button": "Get in Touch"
+    }
+  }
+}

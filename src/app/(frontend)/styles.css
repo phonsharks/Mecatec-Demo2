@@ -3,21 +3,20 @@
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-
-
 html,
 body,
-
-
 body {
   font-family: system-ui;
   font-size: 18px;
   line-height: 32px;
-
+  height: 100%;
   margin: 0;
+  padding: 0;
   color: #000000;
 
   @media (max-width: 1024px) {
@@ -178,4 +177,16 @@ svg {
 /* Admin Panel için özel stil */
 .nav-link[href="/admin"] {
   margin-left: 2rem;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }

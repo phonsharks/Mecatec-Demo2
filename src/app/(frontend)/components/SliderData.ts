@@ -1,35 +1,33 @@
-export interface SlideItem {
-  id: number
+export interface BannerData {
   title: string
   description: string
   buttonText: string
   link: string
   bgColor: string
+  stats: {
+    value: string
+    label: string
+  }[]
 }
 
-export const sliderData: SlideItem[] = [
-  {
-    id: 1,
-    title: 'Optik',
-    description: 'Yüksek kaliteli optik çözümler',
-    buttonText: 'Detaylı Bilgi',
-    link: '/optik',
-    bgColor: 'linear-gradient(135deg, #0062ff 0%, #001a66 100%)',
-  },
-  {
-    id: 2,
-    title: 'Test Sistemleri',
-    description: 'Güvenilir test ve ölçüm sistemleri',
-    buttonText: 'Detaylı Bilgi',
-    link: '/test-sistemleri',
-    bgColor: 'linear-gradient(135deg, #0062ff 0%, #001a66 100%)',
-  },
-  {
-    id: 3,
-    title: 'Kompozit',
-    description: 'İleri teknoloji kompozit malzemeler',
-    buttonText: 'Detaylı Bilgi',
-    link: '/kompozit',
-    bgColor: 'linear-gradient(135deg, #0062ff 0%, #001a66 100%)',
-  },
-]
+export const bannerData: BannerData = {
+  title: 'Tüm Transferler\nTek Basit Uygulama',
+  description: 'En son teknoloji ile desteklenen, size özel tasarlanmış kolay bankacılık deneyimi',
+  buttonText: 'Hemen Başla',
+  link: '/get-started',
+  bgColor: '#111111',
+  stats: [
+    {
+      value: '100k+',
+      label: 'Aktif Hesap',
+    },
+    {
+      value: '2M+',
+      label: 'İşlem',
+    },
+    {
+      value: '80+',
+      label: 'Ülke',
+    },
+  ],
+}

@@ -1,106 +1,228 @@
 .banner-container {
   position: relative;
   width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
 }
 
 .banner {
   width: 100%;
-  height: 660px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  text-align: center;
   position: relative;
-  overflow: hidden;
-  transition: background 0.5s ease;
-}
-
-.banner::before {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: rotate(45deg);
-  animation: shine 3s infinite linear;
 }
 
 .banner-content {
-  z-index: 1;
-  padding: 2rem;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.banner-text {
+  flex: 1;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
 }
 
 .banner h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 1rem;
-  font-weight: bold;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  white-space: pre-line;
+  background: linear-gradient(to right, #ffffff, #a8a8a8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .banner p {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  opacity: 0;
-  animation: fadeIn 0.5s 0.2s forwards;
-  margin-bottom: 2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  color: #a8a8a8;
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
 
 .banner-button {
   padding: 1rem 2rem;
-  font-size: 1.1rem;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid white;
-  color: white;
-  border-radius: 30px;
+  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  opacity: 0;
-  animation: fadeIn 0.5s 0.4s forwards;
+  font-weight: 500;
 }
 
-.banner-button:hover {
-  background: white;
-  color: #0062ff;
+.banner-button.primary {
+  background: #0066ff;
+  color: white;
+  border: none;
 }
 
-.slider-dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+.banner-button.primary:hover {
+  background: #0052cc;
+  transform: translateY(-2px);
+}
+
+.banner-button.secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.banner-button.secondary:hover {
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+.banner-stats {
   display: flex;
-  gap: 10px;
+  gap: 3rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #a8a8a8;
+}
+
+.banner-cards {
+  position: relative;
+  flex: 1;
+  height: 400px;
+}
+
+.card {
+  position: absolute;
+  transition: all 0.5s ease;
+}
+
+.card.black {
+  top: 0;
+  right: 0;
+  transform: rotate(-15deg);
   z-index: 2;
 }
 
-.dot {
+.card.green {
+  top: 100px;
+  right: 50px;
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+
+.banner-image-container {
+  position: relative;
+  flex: 1;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: scale(1.1);
+  animation: fadeInScale 0.5s forwards;
+  transition: all 0.5s ease;
+}
+
+.banner-image.transitioning {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.banner-navigation {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 3;
+}
+
+.banner-nav-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-nav-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
+.banner-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.banner-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  padding: 0;
 }
 
-.dot.active {
+.banner-dot.active {
   background: white;
   transform: scale(1.2);
 }
 
-@keyframes shine {
-  from {
-    transform: translateX(-100%) rotate(45deg);
-  }
-  to {
-    transform: translateX(100%) rotate(45deg);
-  }
-}
-
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -111,17 +233,72 @@
   }
 }
 
-@media (max-width: 768px) {
-  .banner {
-    height: 400px;
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
   }
-  
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding-top: 4rem;
+  }
+
+  .banner-buttons {
+    justify-content: center;
+  }
+
+  .banner-stats {
+    justify-content: center;
+  }
+
+  .banner-image-container {
+    height: 300px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+
+  .banner-navigation {
+    bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-container {
+    min-height: 600px;
+  }
+
   .banner-content {
     padding: 1rem;
   }
-  
-  .banner-button {
-    padding: 0.8rem 1.5rem;
+
+  .banner-image-container {
+    height: 250px;
+    padding: 0.25rem;
+  }
+
+  .banner-navigation {
+    gap: 1rem;
+  }
+
+  .banner-nav-button {
+    width: 40px;
+    height: 40px;
     font-size: 1rem;
+  }
+
+  .banner-dot {
+    width: 10px;
+    height: 10px;
   }
 } 

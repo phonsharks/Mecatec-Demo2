@@ -1,6 +1,6 @@
 import { CollectionConfig } from 'payload/types'
 
-export const Solutions: CollectionConfig = {
+const Solutions: CollectionConfig = {
   slug: 'solutions',
   admin: {
     useAsTitle: 'title',
@@ -13,20 +13,20 @@ export const Solutions: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
-      label: 'Çözüm Başlığı',
+      label: 'Başlık',
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
-      label: 'Çözüm Açıklaması',
+      label: 'Açıklama',
     },
     {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
       required: true,
-      label: 'Çözüm Görseli',
+      label: 'Görsel',
     },
     {
       name: 'category',
@@ -34,16 +34,36 @@ export const Solutions: CollectionConfig = {
       required: true,
       options: [
         {
-          label: 'Endüstriyel Otomasyon',
-          value: 'automation',
+          label: 'Optik Sistemler',
+          value: 'optical',
         },
         {
-          label: 'Teknik Servis',
-          value: 'service',
+          label: 'Test Sistemleri',
+          value: 'testing',
         },
         {
-          label: 'Eğitim & Danışmanlık',
-          value: 'training',
+          label: 'Kompozit Teknolojileri',
+          value: 'composite',
+        },
+      ],
+      label: 'Kategori',
+    },
+    {
+      name: 'features',
+      type: 'array',
+      label: 'Özellikler',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+          label: 'Başlık',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+          label: 'Açıklama',
         },
       ],
     },
@@ -51,10 +71,9 @@ export const Solutions: CollectionConfig = {
       name: 'order',
       type: 'number',
       required: true,
-      defaultValue: 0,
-      admin: {
-        description: 'Sıralama için kullanılır (0 en üstte)',
-      },
+      label: 'Sıralama',
     },
   ],
 }
+
+export default Solutions
